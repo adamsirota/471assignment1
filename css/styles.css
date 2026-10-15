@@ -1,43 +1,146 @@
+:root {
+    --bg: #f4f7f9;
+    --surface: #ffffff;
+    --ink: #1e2a32;
+    --muted: #5c6b75;
+    --accent: #2a6f8f;
+    --accent-soft: #4f9bb8;
+    --accent-pale: #d8eaf1;
+    --dim: #c5ced4;
+    --border: #d5dee4;
+    --brush: rgba(42, 111, 143, 0.12);
+    --brush-stroke: #2a6f8f;
+}
+
 * {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0px auto;
-    line-height: 1.8;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+}
+
+header {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.eyebrow {
+    margin: 0 0 0.35rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+h1 {
+    margin: 0 0 0.75rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+}
+
+.description {
+    margin: 0 0 1rem;
+    max-width: 40rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.summary {
+    display: inline-block;
+    margin: 0;
+    padding: 0.45rem 0.85rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-pale);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
 }
 
 #map svg,
 #scatter svg {
-    margin: 1rem 0;
-    border: 1px solid #ccc;
+    display: block;
+    width: 100%;
+    margin: 1.25rem 0 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(30, 42, 50, 0.06);
+}
+
+.x-axis path,
+.y-axis path,
+.x-axis line,
+.y-axis line {
+    stroke: var(--border);
 }
 
 .x-axis text,
 .y-axis text {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+    fill: var(--muted);
 }
 
 .axis-label,
 .chart-title {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
+    fill: var(--ink);
+}
+
+.chart-title {
+    font-size: 15px;
+    fill: var(--accent);
 }
 
 .station {
-    fill: steelblue;
-    opacity: 0.7;
+    fill: var(--accent-soft);
+    stroke: var(--accent);
+    stroke-width: 0.5px;
+    opacity: 0.75;
 }
 
 .station.dimmed {
-    fill: #ccc;
-    opacity: 0.4;
+    fill: var(--dim);
+    stroke: none;
+    opacity: 0.35;
+}
+
+.selection {
+    fill: var(--brush);
+    stroke: var(--brush-stroke);
+    stroke-width: 1.5px;
 }
 
 #tooltip {
     position: absolute;
-    padding: 10px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    pointer-events: none;
+    z-index: 10;
+    padding: 0.65rem 0.85rem;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(30, 42, 50, 0.12);
+    pointer-events: none;
 }
