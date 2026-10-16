@@ -11,12 +11,29 @@
         <p class="eyebrow">CMSC 471 · Assignment 1</p>
         <h1>U.S. Weather Stations, 2017</h1>
         <p class="description">
-            Each dot is a weather station, summarized over January to September 2017.
-            Drag a box on either chart to select stations; the same stations are highlighted
-            in the other chart. Click an empty spot to clear the selection. Hover over a
-            dot to see station details.
+            Each dot represents a weather station, summarized over January to September 2017. 
+            Dot colors indicate average daily high temperature, with darker red representing 
+            hotter temperatures. Drag a box on either chart or use the preset buttons to jump 
+            to the hottest, coldest, or wettest 10% of stations. Selected stations are 
+            highlighted in both charts. Hover over a dot to view station details and highlight 
+            the matching station in the other chart. Click the clear selection button or empty 
+            space to reset your selection. Toggle Pan & Zoom to explore the map, and Reset view
+            to return to the original map.
+        </p>
+        <p class="description">
+            Explore the presets to discover geographic patterns: the hottest stations cluster 
+            in the South and Hawaii, while the coldest follow the Rocky Mountains and Alaska. 
+            The wettest stations appear in two distinct regions: the Southeast and the Northwest.
         </p>
         <p id="summary" class="summary">Loading data...</p>
+        <div class="controls">
+            <button id="reset">Clear selection</button>
+            <button id="hottest">Hottest 10%</button>
+            <button id="coldest">Coldest 10%</button>
+            <button id="wettest">Wettest 10%</button>
+            <button id="pan-toggle" aria-pressed="false">Pan &amp; zoom</button>
+            <button id="reset-view">Reset view</button>
+        </div>
     </header>
 
     <div id="tooltip" style="display:none"></div>
@@ -25,6 +42,7 @@
 
     <!-- Load D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
