@@ -235,3 +235,39 @@ h1 {
 .map-capture {
     fill: none;
 }
+
+#writeup {
+    max-width: 40rem;
+    margin: 2.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--accent);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+}
+
+#writeup h2 {
+    margin: 0 0 0.25rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+}
+
+#writeup .byline {
+    margin: 0 0 1.5rem;
+    color: var(--muted);
+}
+
+#writeup h3 {
+    margin: 1.75rem 0 0.5rem;
+    font-size: 1.05rem;
+    color: var(--accent);
+}
+
+#writeup li {
+    margin-bottom: 0.6rem;
+}
+
+#writeup a {
+    color: var(--accent);
+}

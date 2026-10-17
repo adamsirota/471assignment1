@@ -40,6 +40,133 @@
     <div id="map"></div>
     <div id="scatter"></div>
 
+
+    <section id="writeup">
+    <h2>Assignment 1 Writeup</h2>
+    <p class="byline">Adam Sirota, Alex Zheng</p>
+
+    <h3>Dataset and goal</h3>
+    <p>
+        This visualization explores daily weather measurements from U.S. weather stations during 2017.
+        The data comes from the NOAA Daily Global Historical Climatology Network dataset provided for the
+        assignment. We focus on two variables: average daily maximum temperature and average daily
+        precipitation, as temperature and precipitation are important indicators of a location’s climate and
+        help characterize differences in weather patterns across regions.
+    </p>
+    <p>
+        Our goal was to help users explore how weather varies geographically and discover how temperature and
+        precipitation correlate. For example, does it rain more in colder or warmer locations, and where are
+        these locations on the map? After cleaning null temperature values and combining daily records grouped
+        by station, the visualization contains 1,559 stations across the US. Average daily high temperatures
+        across 2017 range from approximately 24.7°F to 93.7°F, while average daily precipitation ranges from 0
+        to 0.539 inches.
+    </p>
+
+    <h3>Design rationale</h3>
+    <p>
+        We used two coordinated views: a geographic map of the US and a scatterplot. The map places each
+        station in its geographic location, making regional patterns easy to identify and providing a familiar
+        interface to users. We included a basemap to provide geographic context and help users identify the
+        state boundaries within which stations are located. Meanwhile, the scatterplot reveals relationships
+        and trends between temperature and precipitation.
+    </p>
+    <p>
+        Stations are colored using a sequential yellow/red scale for average daily maximum temperature, with
+        darker red indicating hotter locations. We chose this as the light-to-dark progression conveys
+        increasing temperature and red is commonly associated with heat. We also considered using alternative
+        color scales like rainbow or diverging, but rejected rainbow because hues have no natural order and it
+        creates false bands and the diverging scale because a data-derived midpoint isn’t a meaningful
+        threshold. A legend was also added to both the map and scatterplot so users can interpret the colors
+        and estimate a station’s temperature. Using the same color encoding in both views helps users connect a
+        station’s temperature to its location and position in the scatterplot.
+    </p>
+    <p>
+        By hovering a station on either visual, we can see the corresponding station in the other visual. We
+        also have added presets to capture the top 10% hottest, coldest, and wettest environments, which allows
+        for easy exploration of extreme values to gain more insight on how extreme temperature and
+        precipitation clusters in certain regions. In combination with the linking, we can identify these
+        clusters in both the scatterplot and the map to visualize the trends and geographic patterns. For
+        example, the hottest stations cluster in the South and Hawaii, the coldest follow the Rocky Mountains
+        and Alaska, and the wettest stations appear in two distinct regions: the Southeast and the Northwest.
+        We also annotated the hottest, coldest, and wettest stations on the scatterplot so the extremes are
+        easy to find, and hovering any of them highlights its location on the map through the hover link.
+    </p>
+    <p>
+        We added both pan and zoom as interactive features with a button toggle instead of an alternative like
+        a toggle key on the keyboard which could be difficult to find. As both the brush and pan need a
+        dragging motion, this was the easiest way to allow for both features without issues with drag
+        interactions. The toggle also makes it clearer when users are navigating the map rather than
+        interacting with individual stations.
+    </p>
+
+    <h3>Interactions</h3>
+    <p>The visualization includes the following interactions:</p>
+    <ul>
+        <li>
+            <strong>Brushing and linking (Category I):</strong> Users can drag a rectangular selection area on
+            either the map or scatterplot, which can be resized and moved. The selected stations remain visible
+            while non selected stations are muted in both views. Also, the selected stations in one plot are
+            highlighted in the other one. A label above the button menu updates after brushing selections to
+            reflect the number of selected stations and their average temperature/precipitation numbers.
+        </li>
+        <li>
+            <strong>Preset selections (Category I):</strong> There are buttons on a menu above the graphs in
+            which the users can select and highlight the top 10% hottest, coldest, or wettest stations on the
+            graphs. You can click in an empty space or use the clear selection button in order to reset the
+            selection to an empty state.
+        </li>
+        <li>
+            <strong>Details on demand (Category II):</strong> Hovering over a station on either graph displays
+            its name, state, average high temperature, and average daily precipitation.
+        </li>
+        <li>
+            <strong>Hover linking (Category II):</strong> Hovering a station on either chart outlines the same
+            station in the other chart, so users can find a single station in both views at once.
+        </li>
+        <li>
+            <strong>Pan and zoom (Category II):</strong> Users can select the pan and zoom mode on the button
+            menu to enable these actions for the map, and then click the reset view button when they are
+            finished. Use the scroll wheel while in this mode to zoom into the map and drag to pan around the
+            zoomed map. Switching back to the selection mode will let users brush the visible stations. While
+            panning, brushing is unavailable, and you can see by the cursor which mode you are in: the
+            crosshair cursor is selection mode, and the hand cursor is pan mode.
+        </li>
+        <li>
+            <strong>Annotation (Category II):</strong> The scatterplot points out the hottest, coldest, and
+            wettest stations. By hovering any of these stations in the scatterplot, the corresponding station in
+            the map is also highlighted.
+        </li>
+    </ul>
+
+    <h3>Development process</h3>
+    <p>
+        Adam worked on the baseline page, cleaning the data, adding the initial map and scatterplot, added
+        basic styling, and also added the brushing and linking features. Alex added the basemap, the
+        temperature color scale and legends, linking upon hovering over a station, the button menu and
+        respective functions, including the preset selections and pan &amp; zoom, the annotations, and other
+        small touchups like filtering for just US states.
+    </p>
+    <p>
+        In total, developing this project took about a combined 12 hours across the two of us, with an
+        additional 2 to 3 hours spent on the writeup, demo video, and publishing the site. The aspects that
+        took the most time were figuring out how to best implement features that were not yet covered in class,
+        which includes some of the features listed in categories 1 and 2. Integrating these features while
+        ensuring that they worked together without conflicting required experimentation and debugging.
+    </p>
+
+    <h3>AI usage</h3>
+    <p>
+        AI tools were used to find guidance on implementing visualization features, suggest implementation
+        approaches, assist with debugging, and review and refine the project write-up.
+    </p>
+
+    <h3>References</h3>
+    <ul>
+        <li>NOAA Daily Global Historical Climatology Network weather data, provided as weather.csv for CMSC 471 Assignment 1.</li>
+        <li><a href="https://d3js.org/">D3.js</a> for data loading, scales, SVG rendering, brushing, zooming, and tooltips.</li>
+        <li><a href="https://github.com/topojson/topojson-client">TopoJSON Client</a> for rendering the provided U.S. basemap.</li>
+    </ul>
+    </section>
     <!-- Load D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
